@@ -13,24 +13,26 @@ const items = [
 
 export function Features() {
   return (
-    <section id="features" className="py-32">
+    <section id="features" className="py-32 ">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground/70">Platform</p>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Platform</p>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance text-foreground">
             Every primitive you need. Nothing you don&apos;t.
           </h2>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-hairline border border-hairline rounded-2xl overflow-hidden">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="group bg-background p-8 transition-colors hover:bg-surface/60"
+              className="group border border-border p-8 rounded-2xl transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.03)] hover:border-primary/20"
             >
-              <Icon className="h-5 w-5 text-foreground/80 stroke-[1.5]" />
-              <h3 className="mt-6 text-base font-semibold">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              <div className="h-10 w-10 rounded-lg text-primary flex items-center justify-center transition-all duration-300  group-hover:text-white">
+                <Icon className="h-5 w-5 stroke-[1.8]" />
+              </div>
+              <h3 className="mt-6 text-base font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-primary">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
             </div>
           ))}
         </div>

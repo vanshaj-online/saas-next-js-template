@@ -17,36 +17,35 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="py-32">
+    <section className="py-32 ">
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground/70">FAQ</p>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">FAQ</p>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance text-foreground">
             Questions, answered.
           </h2>
         </div>
 
-        <div className="mt-16 border-t border-hairline">
+        <div className="mt-16 border-t border-border">
           {faqs.map((f, i) => {
             const isOpen = open === i
             return (
-              <div key={i} className="border-b border-hairline">
+              <div key={i} className="border-b border-border">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between py-6 text-left group"
+                  className="w-full flex items-center justify-between py-6 text-left group transition-colors duration-200"
                 >
-                  <span className="text-base font-medium text-foreground/95 pr-8">{f.q}</span>
-                  <Plus
-                    className={`h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''
-                      }`}
-                  />
+                  <span className="text-base font-bold text-foreground pr-8 group-hover:text-primary transition-colors duration-200">{f.q}</span>
+                  <div className={`h-6 w-6 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-primary/10 text-primary rotate-45' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                    <Plus className="h-4 w-4 shrink-0 stroke-[2.5]" />
+                  </div>
                 </button>
                 <div
                   className="grid transition-all duration-300 ease-out"
                   style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-6 pr-10 text-sm text-muted-foreground leading-relaxed">
+                    <p className="pb-6 pr-10 text-sm font-medium text-muted-foreground leading-relaxed">
                       {f.a}
                     </p>
                   </div>

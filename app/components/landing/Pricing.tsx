@@ -37,83 +37,86 @@ export function Pricing() {
   const [yearly, setYearly] = useState(true)
 
   return (
-    <section id="pricing" className="py-32">
+    <section id="pricing" className="py-32 ">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground/70">Pricing</p>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Pricing</p>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance text-foreground">
             Simple pricing. Honest scaling.
           </h2>
 
-          <div className="mt-10 inline-flex items-center rounded-full border border-hairline bg-surface/60 p-1 text-sm relative">
+          <div className="mt-10 inline-flex items-center rounded-full border border-border bg-white/5 p-1 text-sm relative">
             <span
               className="absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-full bg-foreground transition-all duration-300 ease-out"
               style={{ left: yearly ? 'calc(50% + 0px)' : '4px' }}
             />
             <button
               onClick={() => setYearly(false)}
-              className={`relative z-10 px-5 h-8 rounded-full transition-colors ${!yearly ? 'text-background' : 'text-muted-foreground'}`}
+              className={`relative z-10 px-5 py-2 rounded-full text-xs  transition-colors duration-200 ${!yearly ? 'text-black' : 'text-foreground hover:text-foreground'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setYearly(true)}
-              className={`relative z-10 px-5 h-8 rounded-full transition-colors ${yearly ? 'text-background' : 'text-muted-foreground'}`}
+              className={`relative z-10 px-5 py-2 rounded-full text-xs  transition-colors duration-200 ${yearly ? 'text-black' : 'text-foreground hover:text-foreground'}`}
             >
-              Yearly <span className="text-xs opacity-70">&minus;20%</span>
+              Yearly
             </button>
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {tiers.map((t) => (
             <div
               key={t.name}
-              className={`relative rounded-2xl border p-8 flex flex-col ${
-                t.featured
-                  ? 'border-primary/40 bg-surface'
-                  : 'border-hairline bg-surface/30'
-              }`}
+              className={`relative rounded-2xl border p-8 flex flex-col justify-between transition-all duration-300 ${t.featured
+                ? 'border-primary  shadow-[0_20px_40px_rgba(59,130,246,0.06)] scale-[1.02] z-10'
+                : 'border-border  shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-md hover:border-muted-foreground/20'
+                }`}
             >
               {t.featured && (
-                <span className="absolute -top-2.5 left-8 text-[10px] uppercase tracking-[0.18em] bg-primary text-primary-foreground px-2 py-1 rounded-full">
+                <span className="absolute -top-3 left-8 text-[9px] uppercase font-bold tracking-[0.2em] bg-foreground text-background  px-3 py-1 rounded-full shadow-sm">
                   Most popular
                 </span>
               )}
-              <div className="text-sm font-medium">{t.name}</div>
-              <div className="mt-4 flex items-baseline gap-1">
-                {t.monthly === null ? (
-                  <span className="text-4xl font-semibold tracking-tight">Custom</span>
-                ) : (
-                  <>
-                    <span className="text-4xl font-semibold tracking-tight">
-                      ${yearly ? t.yearly : t.monthly}
-                    </span>
-                    <span className="text-sm text-muted-foreground">/mo</span>
-                  </>
-                )}
+
+              <div>
+                <div className="text-xs uppercase font-semibold tracking-wider text-muted-foreground">{t.name}</div>
+                <div className="mt-4 flex items-baseline gap-1">
+                  {t.monthly === null ? (
+                    <span className="text-4xl font-semibold tracking-tight text-foreground">Custom</span>
+                  ) : (
+                    <>
+                      <span className="text-4xl font-semibold tracking-tight text-foreground">
+                        ${yearly ? t.yearly : t.monthly}
+                      </span>
+                      <span className="text-sm font-semibold text-muted-foreground">/mo</span>
+                    </>
+                  )}
+                </div>
+                <p className="mt-3 text-sm font-medium text-muted-foreground leading-relaxed">{t.desc}</p>
+
+                <a
+                  href="#"
+                  className={`mt-8 inline-flex items-center justify-center rounded-full h-11 text-xs font-bold transition-all duration-200 w-full active:scale-98 ${t.featured
+                    ? 'bg-foreground text-background hover:bg-primary shadow-sm hover:shadow'
+                    : 'border border-border text-foreground hover:bg-foreground hover:text-background  hover:bg-slate-50'
+                    }`}
+                >
+                  {t.cta}
+                </a>
+
+                <ul className="mt-8 space-y-4 border-t border-border pt-6">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-foreground/80 font-medium">
+                      <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center p-0.5 shrink-0 mt-0.5">
+                        <Check className="h-3.5 w-3.5 stroke-[3]" />
+                      </div>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">{t.desc}</p>
-
-              <a
-                href="#"
-                className={`mt-8 inline-flex items-center justify-center rounded-full h-10 text-sm font-medium transition ${
-                  t.featured
-                    ? 'bg-foreground text-background hover:bg-foreground/90'
-                    : 'border border-hairline hover:bg-surface'
-                }`}
-              >
-                {t.cta}
-              </a>
-
-              <ul className="mt-8 space-y-3 border-t border-hairline pt-6">
-                {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                    <Check className="h-4 w-4 mt-0.5 text-primary stroke-[2]" />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>

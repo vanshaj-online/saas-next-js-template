@@ -13,11 +13,13 @@ export function ProductPreview() {
       <div className="relative mx-auto max-w-6xl px-6 mt-20 ">
         {/* Soft elegant mesh behind mockup */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[800px] rounded-full pointer-events-none opacity-[0.5]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[800px] rounded-full pointer-events-none opacity-[0.5] ambient-breathe"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(59,130,246,0.12), transparent 70%)',
             filter: 'blur(50px)',
+            animationDelay: '1s',
+            animationDuration: '20s',
           }}
         />
 

@@ -59,6 +59,20 @@
     -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
+
+  .ambient-breathe {
+    animation: ambientBreathe 14s ease-in-out infinite;
+  }
+}
+
+@keyframes ambientBreathe {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.95;
+  }
 }
 
 ::-webkit-scrollbar {

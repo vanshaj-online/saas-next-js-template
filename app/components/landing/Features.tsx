@@ -28,8 +28,9 @@ export function Features() {
               key={title}
               className="group border border-border p-8 rounded-2xl transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.03)] hover:border-primary/20"
             >
-              <div className="h-10 w-10 rounded-lg text-primary flex items-center justify-center transition-all duration-300  group-hover:text-white">
-                <Icon className="h-5 w-5 stroke-[1.8]" />
+              <div className="relative h-10 w-10 rounded-lg text-primary flex items-center justify-center transition-all duration-300 group-hover:text-white group-hover:bg-primary/5 backdrop-blur-sm">
+                <span className="pointer-events-none absolute inset-0 rounded-lg opacity-0 blur-md transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(218,218,218,0.25),transparent_65%)]" />
+                <Icon className="relative z-10 h-5 w-5 stroke-[1.8]" />
               </div>
               <h3 className="mt-6 text-base font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-primary">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>

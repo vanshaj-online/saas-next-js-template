@@ -9,17 +9,19 @@ export function Hero() {
 
       {/* Premium ambient light mesh */}
       <div
-        className="absolute left-[35%] top-[15%] -translate-x-1/2 h-[350px] w-[600px] rounded-full pointer-events-none mix-blend-multiply opacity-[1]"
+        className="absolute left-[35%] top-[15%] -translate-x-1/2 h-[350px] w-[600px] rounded-full pointer-events-none mix-blend-multiply opacity-[1] ambient-breathe"
         style={{
           background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.08), transparent 70%)',
           filter: 'blur(50px)',
         }}
       />
       <div
-        className="absolute left-[65%] top-[25%] -translate-x-1/2 h-[350px] w-[600px] rounded-full pointer-events-none mix-blend-multiply opacity-[0.6]"
+        className="absolute left-[65%] top-[25%] -translate-x-1/2 h-[350px] w-[600px] rounded-full pointer-events-none mix-blend-multiply opacity-[0.6] ambient-breathe"
         style={{
           background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.06), transparent 70%)',
           filter: 'blur(50px)',
+          animationDelay: '2s',
+          animationDuration: '18s',
         }}
       />
 
@@ -28,7 +30,7 @@ export function Hero() {
 
         <div className="max-w-4xl mx-auto">
 
-          <h1 className="animate-fadeUp text-[44px] sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[1.01] text-foreground text-balance">
+          <h1 className="animate-fadeUp text-[44px] sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[1.01] bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text text-transparent text-balance">
             Ship software beautifully.
           </h1>
 

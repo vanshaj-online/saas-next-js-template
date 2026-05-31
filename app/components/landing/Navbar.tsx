@@ -15,7 +15,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 `}
+      className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'border-b border-border' : ''}`}
     >
       <nav className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
         <a href="#" className="text-[15px] font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">

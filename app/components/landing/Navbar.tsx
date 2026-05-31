@@ -15,11 +15,11 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 `}
+      className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 bg-[#171717]`}
     >
-      <nav className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
+      <nav className="mx-auto max-w-6xl flex items-center justify-between px-pad-sm py-pad-xs">
         <a href="#" className="text-[15px] font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
-          Elevate
+          [BrandName]
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           {links.map((l) => (

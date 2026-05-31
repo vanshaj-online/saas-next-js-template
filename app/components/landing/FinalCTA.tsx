@@ -5,8 +5,8 @@ import { ArrowRight } from 'lucide-react'
 export function FinalCTA() {
   return (
     <section className="py-32 ">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-border  py-24 px-6 text-center shadow-[0_15px_40px_rgba(0,0,0,0.03)]">
+      <div className="mx-auto max-w-6xl px-pad-sm">
+        <div className="relative overflow-hidden rounded-3xl border border-border  py-24 px-pad-sm text-center shadow-[0_15px_40px_rgba(0,0,0,0.03)]">
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[600px] rounded-full pointer-events-none opacity-[0.6]"
             style={{
@@ -22,7 +22,7 @@ export function FinalCTA() {
               Start building today.
             </h2>
             <p className="mt-5 text-base font-medium text-muted-foreground max-w-md mx-auto leading-relaxed">
-              Join thousands of teams shipping faster with elevate. Free for 14 days, no credit card required.
+              Join thousands of teams shipping faster with [BrandName]. Free for 14 days, no credit card required.
             </p>
             <div className="mt-10">
               <a

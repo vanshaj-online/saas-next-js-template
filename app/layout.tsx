@@ -15,10 +15,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'elevate — Ship software, beautifully.',
+  title: '[BrandName] — Ship software, beautifully.',
   description: 'The operating system for modern product teams. Plan, build and ship with unmatched clarity.',
   openGraph: {
-    title: 'elevate — Ship software, beautifully.',
+    title: '[BrandName] — Ship software, beautifully.',
     description: 'The operating system for modern product teams.',
   },
 }

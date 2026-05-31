@@ -8,14 +8,11 @@ const cols = [
 export function Footer() {
   return (
     <footer className="border-t border-border ">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+      <div className="mx-auto max-w-6xl px-pad-sm py-20">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           <div className="col-span-2">
             <div className="flex items-center gap-2">
-              <div className="h-6 w-6 rounded bg-primary grid place-items-center">
-                <div className="h-2 w-2 rounded-sm " />
-              </div>
-              <span className="text-[15px] font-bold tracking-tight text-foreground">elevate</span>
+              <h3>[BrandName]</h3>
             </div>
             <p className="mt-4 text-sm font-semibold text-muted-foreground max-w-xs leading-relaxed">
               The operating system for modern product teams.
@@ -39,7 +36,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-muted-foreground/60">
-          <span>© {new Date().getFullYear()} elevate Labs, Inc.</span>
+          <span>© {new Date().getFullYear()} [BrandName] Labs, Inc.</span>
           <span>Crafted with intention.</span>
         </div>
       </div>

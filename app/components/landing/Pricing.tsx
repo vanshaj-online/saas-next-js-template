@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Check } from 'lucide-react'
+import { SectionHeader } from './SectionHeader'
 
 const tiers = [
   {
@@ -40,10 +41,10 @@ export function Pricing() {
     <section id="pricing" className="py-32 ">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Pricing</p>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-balance text-foreground">
-            Simple pricing. Honest scaling.
-          </h2>
+          <SectionHeader
+            label="Pricing"
+            heading={["Simple pricing.", "Honest scaling."]}
+          />
 
           <div className="mt-10 inline-flex items-center rounded-full border border-border bg-white/5 p-1 text-sm relative">
             <span
@@ -70,8 +71,8 @@ export function Pricing() {
             <div
               key={t.name}
               className={`relative rounded-2xl border p-8 flex flex-col justify-between transition-all duration-300 ${t.featured
-                ? 'border-primary  shadow-[0_20px_40px_rgba(59,130,246,0.06)] scale-[1.02] z-10'
-                : 'border-border  shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-md hover:border-muted-foreground/20'
+                ? 'border-primary z-10'
+                : 'border-border hover:border-muted-foreground/20'
                 }`}
             >
               {t.featured && (

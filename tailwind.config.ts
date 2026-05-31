@@ -57,6 +57,12 @@ const config: Config = {
           to: { opacity: '1', transform: 'translateY(0)' },
         },
       },
+      spacing: {
+        'pad-xs': 'var(--padding-xs)',
+        'pad-sm': 'var(--padding-sm)',
+        'pad-md': 'var(--padding-md)',
+        'pad-lg': 'var(--padding-lg)',
+      }
     },
   },
   plugins: [],

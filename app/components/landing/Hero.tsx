@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden h-screen flex items-center justify-center">
+    <section className="relative overflow-hidden md:h-screen min-h-screen flex items-center justify-center px-pad-sm">
       <div className="absolute inset-0 bg-dot-grid mask-radial-fade pointer-events-none" />
 
       {/* Premium ambient light mesh */}
@@ -23,8 +23,8 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 text-center h-full flex flex-col justify-between py-12 w-full">
-        <span className="h-1 w-full invisible"></span>
+      <div className="relative mx-auto max-w-6xl text-center flex flex-col justify-between py-12 w-full h-full">
+        <span className="md:h-1 w-full invisible h-32"></span>
 
         <div className="max-w-4xl mx-auto">
 
@@ -33,7 +33,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="animate-fadeUp mx-auto mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
+            className="animate-fadeUp mx-auto mt-6 max-w-xl text-sm sm:text-lg text-muted-foreground leading-[1.3]"
             style={{ animationDelay: '120ms' }}
           >
             The operating system for modern product teams. Plan, build and ship with
@@ -47,7 +47,7 @@ export function Hero() {
             <div className='flex flex-col sm:flex-row gap-4'>
               <a
                 href="#product"
-                className="group inline-flex items-center gap-2 rounded-full btn-primary text-sm font-semibold px-6 h-12 hover:bg-primary/95 transition shadow-sm hover:shadow active:scale-98 duration-200"
+                className="group inline-flex items-center gap-2 rounded-full btn-primary text-sm font-semibold px-6 py-3 hover:bg-primary/95 transition shadow-sm hover:shadow active:scale-98 duration-200"
               >
                 Start free trial
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -55,7 +55,7 @@ export function Hero() {
 
               <a
                 href="#pricing"
-                className="inline-flex items-center gap-2 rounded-full border border-border text-sm font-semibold px-6 h-12 btn-secondary hover:bg-muted/50 transition active:scale-98 duration-200"
+                className="inline-flex gap-2 rounded-full border border-border text-sm font-semibold px-6 py-3 btn-secondary hover:bg-muted/50 transition active:scale-98 duration-200 justify-center"
               >
                 Book a demo
               </a>
@@ -67,14 +67,14 @@ export function Hero() {
         </div>
 
         <div
-          className="animate-fadeUp flex flex-col items-center gap-8"
+          className="animate-fadeUp flex flex-col items-center gap-8 mt-20 md:mt-0"
           style={{ animationDelay: '320ms' }}
         >
           <p className="text-xs uppercase tracking-[0.2em] font-medium text-muted-foreground/60">
             Trusted by teams at
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 opacity-50">
-            {['LINEAR', 'VERCEL', 'STRIPE', 'FRAMER', 'NOTION'].map((c) => (
+            {['LINEAR', 'VERCEL', 'STRIPE', 'FRAMER'].map((c) => (
               <span
                 key={c}
                 className="text-xs tracking-[0.25em] text-foreground hover:opacity-100 transition-opacity duration-200"

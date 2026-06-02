@@ -18,7 +18,7 @@ export function Navbar() {
       className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 bg-[#171717]`}
     >
       <nav className="mx-auto max-w-6xl flex items-center justify-between px-pad-sm py-pad-xs">
-        <a href="#" className="text-[15px] font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
+        <a href="#" className="text-sm font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
           [BrandName]
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
@@ -30,7 +30,7 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-8">
           <a href="#" className="hidden sm:inline text-sm font-medium text-muted-foreground hover:text-primary transition duration-200">
             Sign in
           </a>

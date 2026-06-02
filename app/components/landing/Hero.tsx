@@ -33,7 +33,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="animate-fadeUp mx-auto mt-6 max-w-xl text-sm sm:text-lg text-muted-foreground leading-[1.3]"
+            className="animate-fadeUp mx-auto mt-6 max-w-xl text-sm sm:text-base text-muted-foreground leading-[1.3]"
             style={{ animationDelay: '120ms' }}
           >
             The operating system for modern product teams. Plan, build and ship with
@@ -67,7 +67,7 @@ export function Hero() {
         </div>
 
         <div
-          className="animate-fadeUp flex flex-col items-center gap-8 mt-20 md:mt-0"
+          className="animate-fadeUp flex flex-col items-center gap-4 mt-20 md:mt-0"
           style={{ animationDelay: '320ms' }}
         >
           <p className="text-xs uppercase tracking-[0.2em] font-medium text-muted-foreground/60">

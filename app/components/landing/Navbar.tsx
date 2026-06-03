@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-const links = ['Features', 'Product', 'Pricing', 'Docs', 'Changelog']
+const links = ['Features', 'Reviews', 'Pricing', 'Docs']
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -17,7 +17,7 @@ export function Navbar() {
     <header
       className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 bg-[#171717]`}
     >
-      <nav className="mx-auto max-w-6xl flex items-center justify-between px-pad-sm py-pad-xs">
+      <nav className="mx-auto max-w-7xl flex items-center justify-between px-pad-sm py-pad-xs">
         <a href="#" className="text-sm font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
           [BrandName]
         </a>
@@ -36,7 +36,7 @@ export function Navbar() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-1.5 rounded-full btn-primary text-sm font-medium px-4 h-9 hover:/80 transition shadow-sm active:scale-95 duration-200"
+            className="inline-flex items-center gap-1.5 rounded-full btn-primary text-xs sm:text-sm font-medium px-4 h-9 hover:/80 transition shadow-sm active:scale-95 duration-200"
           >
             Get started
           </a>

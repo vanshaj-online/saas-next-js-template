@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <LogoMarquee />
       <Features />
-      <ProductPreview />
+      {/* <ProductPreview /> */}
       <HowItWorks />
       <Testimonials />
       <Pricing />

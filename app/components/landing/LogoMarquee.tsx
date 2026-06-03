@@ -6,7 +6,7 @@ const logos = [
 
 export function LogoMarquee() {
   return (
-    <section className="py-12m overflow-hidden my-16">
+    <section className="py-32 overflow-hidden my-16">
       <div
         className="flex"
         style={{

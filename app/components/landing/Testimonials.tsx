@@ -20,8 +20,8 @@ const quotes = [
 
 export function Testimonials() {
   return (
-    <section className="py-32 ">
-      <div className="mx-auto max-w-6xl flex flex-col items-center px-pad-sm">
+    <section className="py-32" id='reviews'>
+      <div className="mx-auto max-w-7xl flex flex-col items-center px-pad-sm">
         <div className="max-w-2xl flex flex-col items-center">
           <SectionHeader
             label="Loved by builders"

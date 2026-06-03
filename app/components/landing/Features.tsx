@@ -19,10 +19,9 @@ interface FeatureCardProps {
   title: string
   desc: string
   mousePos: { x: number; y: number }
-  showGlow: boolean
 }
 
-function FeatureCard({ icon: Icon, title, desc, mousePos, showGlow }: FeatureCardProps) {
+function FeatureCard({ icon: Icon, title, desc, mousePos }: FeatureCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [localPos, setLocalPos] = useState({ x: 0, y: 0 })
   const [opacity, setOpacity] = useState(0)
@@ -72,7 +71,7 @@ function FeatureCard({ icon: Icon, title, desc, mousePos, showGlow }: FeatureCar
 
       {/* Proximity glow */}
       <motion.div
-        className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ${showGlow ? 'opacity-100' : 'opacity-0'}`}
+        className={`pointer-events-none absolute inset-0`}
         animate={{
           opacity,
           background: `radial-gradient(350px circle at ${localPos.x}px ${localPos.y}px, rgba(255,255,255,0.1), transparent 70%)`,
@@ -105,17 +104,13 @@ function FeatureCard({ icon: Icon, title, desc, mousePos, showGlow }: FeatureCar
 export function Features() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [showGlow, setShowGlow] = useState<boolean>(false)
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    setShowGlow(true)
     setMousePos({ x: e.clientX, y: e.clientY })
-
   }
 
   const handleMouseLeave = () => {
-    setShowGlow(false)
-
+    setMousePos({ x: window.innerWidth / 2, y: 9999 })
   }
 
   return (
@@ -127,7 +122,7 @@ export function Features() {
       id="features" className="py-32">
 
       <div
-        className="mx-auto max-w-6xl px-pad-sm">
+        className="mx-auto max-w-7xl px-pad-sm">
 
         <div className="max-w-2xl flex flex-col items-center mx-auto">
 
@@ -150,7 +145,6 @@ export function Features() {
               title={title}
               desc={desc}
               mousePos={mousePos}
-              showGlow={showGlow}
             />
 
           ))}

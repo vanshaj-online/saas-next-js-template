@@ -39,7 +39,7 @@ export function Pricing() {
 
   return (
     <section id="pricing" className="py-32 ">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto">
           <SectionHeader
             label="Pricing"

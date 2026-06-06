@@ -98,8 +98,7 @@ export function Pricing() {
                 <p className="mt-3 text-sm font-medium text-muted-foreground leading-relaxed">{t.desc}</p>
 
                 <a
-                  href="#"
-                  className={`mt-8 inline-flex items-center justify-center rounded-full h-11 text-xs font-bold transition-all duration-200 w-full active:scale-98 ${t.featured
+                  className={`mt-8 inline-flex items-center cursor-pointer justify-center rounded-full h-11 text-xs font-bold transition-all duration-200 w-full active:scale-98 ${t.featured
                     ? 'bg-foreground text-background hover:bg-primary shadow-sm hover:shadow'
                     : 'border border-border text-foreground hover:bg-foreground hover:text-background  hover:bg-slate-50'
                     }`}

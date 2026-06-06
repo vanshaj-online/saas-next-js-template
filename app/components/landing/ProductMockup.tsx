@@ -1,6 +1,14 @@
+'use client'
+
+import { m } from "motion/react"
+
 function ProductMockup() {
     return (
-        <div className="relative mx-auto max-w-7xl mt-20 ">
+        <m.div className="relative mx-auto max-w-7xl mt-20 "
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.5, ease: "circOut" }}
+        >
             {/* Soft elegant mesh behind mockup */}
             <div
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[800px] rounded-full pointer-events-none opacity-[0.5]"
@@ -88,7 +96,7 @@ function ProductMockup() {
                     </div>
                 </div>
             </div>
-        </div>
+        </m.div>
     )
 }
 

@@ -4,6 +4,11 @@ const logos = [
   'ACME', 'MERIDIAN', 'NORTHWIND', 'AURORA', 'FORMA', 'QUANTA', 'OBSIDIAN', 'HELIX', 'PARALLAX', 'VOYAGER',
 ]
 
+const marqueeItems = [...logos, ...logos].map((logo, index) => ({
+  id: `${logo}-${index}`,
+  name: logo,
+}))
+
 export function LogoMarquee() {
   return (
     <section className="py-32 overflow-hidden my-16">
@@ -17,12 +22,12 @@ export function LogoMarquee() {
         }}
       >
         <div className="animate-marquee flex shrink-0 items-center gap-20 pr-20">
-          {[...logos, ...logos].map((l, i) => (
+          {marqueeItems.map((item) => (
             <span
-              key={i}
+              key={item.id}
               className="text-xs font-semibold tracking-[0.3em] text-muted-foreground/40 whitespace-nowrap hover:text-primary transition-colors duration-300 cursor-default"
             >
-              {l}
+              {item.name}
             </span>
           ))}
         </div>

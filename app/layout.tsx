@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
+import { MotionConfig, LazyMotion, domAnimation } from 'motion/react'
 import './globals.css'
 import 'lenis/dist/lenis.css'
 
@@ -32,7 +33,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        {children}
+        <LazyMotion features={domAnimation}>
+          <MotionConfig reducedMotion="user">
+            {children}
+          </MotionConfig>
+        </LazyMotion>
       </body>
     </html>
   )

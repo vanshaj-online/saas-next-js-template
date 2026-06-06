@@ -1,21 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { m } from "motion/react"
 
 const links = ['Features', 'Reviews', 'Pricing', 'Docs']
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
-    <header
-      className={`fixed backdrop-blur-xl top-0 inset-x-0 z-50 transition-all duration-300 bg-[#171717]`}
+    <m.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.75, delay: 0.5 }}
+      className={`fixed top-0 inset-x-0 z-50 bg-background`}
     >
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-pad-sm py-pad-xs">
         <a href="#" className="text-sm font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
@@ -42,6 +38,6 @@ export function Navbar() {
           </a>
         </div>
       </nav>
-    </header>
+    </m.header>
   )
 }

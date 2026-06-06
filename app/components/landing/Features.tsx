@@ -1,27 +1,24 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import { motion } from 'motion/react'
-import { Zap, GitBranch, Shield, Layers, Compass, Workflow, LucideIcon } from 'lucide-react'
+import { m } from 'motion/react'
 import { SectionHeader } from './SectionHeader'
 
 const items = [
-  { icon: Zap, title: 'Built for speed', desc: 'Sub-50ms interactions across every surface. Designed to feel native.' },
-  { icon: GitBranch, title: 'Native git flow', desc: 'Branches, PRs and reviews wired directly into your roadmap.' },
-  { icon: Shield, title: 'Secure by default', desc: 'SOC 2 Type II, SAML SSO, SCIM and granular role-based access.' },
-  { icon: Layers, title: 'Composable surface', desc: 'A primitive system that bends to your team\'s exact shape.' },
-  { icon: Compass, title: 'Opinionated defaults', desc: 'Best practices, baked in. Skip the setup, ship the product.' },
-  { icon: Workflow, title: 'Automated rituals', desc: 'Standups, planning and retros that run themselves.' },
+  { title: 'Built for speed', desc: 'Sub-50ms interactions across every surface. Designed to feel native.' },
+  { title: 'Native git flow', desc: 'Branches, PRs and reviews wired directly into your roadmap.' },
+  { title: 'Secure by default', desc: 'SOC 2 Type II, SAML SSO, SCIM and granular role-based access.' },
+  { title: 'Composable surface', desc: 'A primitive system that bends to your team\'s exact shape.' },
 ]
 
 interface FeatureCardProps {
-  icon: LucideIcon
   title: string
   desc: string
   mousePos: { x: number; y: number }
+  index: number
 }
 
-function FeatureCard({ icon: Icon, title, desc, mousePos }: FeatureCardProps) {
+function FeatureCard({ title, desc, mousePos, index }: FeatureCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [localPos, setLocalPos] = useState({ x: 0, y: 0 })
   const [opacity, setOpacity] = useState(0)
@@ -63,15 +60,18 @@ function FeatureCard({ icon: Icon, title, desc, mousePos }: FeatureCardProps) {
 
   return (
 
-    <div
+    <m.div
       ref={cardRef}
-      className="group relative overflow-hidden border border-border p-8 rounded-2xl transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.03)]"
-      style={{ isolation: 'isolate' }}
+      className="group relative overflow-hidden border border-border p-8 rounded-2xl w-64 h-auto aspect-[4/4.5] flex items-start justify-between flex-col" style={{ isolation: 'isolate' }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ type: 'tween', duration: 0.5, delay: index * 0.15, ease: 'easeInOut' }}
     >
 
       {/* Proximity glow */}
-      <motion.div
-        className={`pointer-events-none absolute inset-0`}
+      <m.div
+        className={`pointer-events-none absolute inset-0 md:inline-block hidden`}
         animate={{
           opacity,
           background: `radial-gradient(350px circle at ${localPos.x}px ${localPos.y}px, rgba(255,255,255,0.1), transparent 70%)`,
@@ -81,21 +81,21 @@ function FeatureCard({ icon: Icon, title, desc, mousePos }: FeatureCardProps) {
 
       {/* Existing content — untouched */}
 
-      <div className="h-10 w-10 rounded-lg text-primary flex items-center justify-center transition-all duration-300 group-hover:text-white">
+      <span className='opacity-50'>0{index + 1}</span>
 
-        <Icon className="h-5 w-5 stroke-[1.8]" />
+      <div className='flex flex-col items-start'>
+
+        <h3 className="mt-6 text-xl font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-primary ">
+
+          {title}
+
+        </h3>
+
+        <p className="mt-2 text-muted-foreground mx-auto leading-relaxed font-light max-w-[200px]">{desc}</p>
 
       </div>
 
-      <h3 className="mt-6 text-base font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-primary">
-
-        {title}
-
-      </h3>
-
-      <p className="mt-2 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
-
-    </div>
+    </m.div>
 
   )
 
@@ -134,16 +134,16 @@ export function Features() {
         </div>
 
         <div
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-max mx-auto"
         >
 
-          {items.map(({ icon, title, desc }) => (
+          {items.map(({ title, desc }, index) => (
 
             <FeatureCard
               key={title}
-              icon={icon}
               title={title}
               desc={desc}
+              index={index}
               mousePos={mousePos}
             />
 

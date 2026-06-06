@@ -5,17 +5,17 @@ import { Plus } from 'lucide-react'
 import { SectionHeader } from './SectionHeader'
 
 const faqs = [
-  { q: 'How is [BrandName] different from other project tools?', a: '[BrandName] is built around a small set of opinionated primitives instead of dozens of disconnected features. The result feels quiet and intentional — less to configure, more to ship.' },
-  { q: 'Can I migrate from Linear, Jira or Asana?', a: 'Yes. We offer one-click importers for Linear, Jira, Asana, Trello and GitHub Projects. Most teams are fully migrated in under an hour.' },
-  { q: 'Do you offer a free plan?', a: 'The Free plan is generous and forever free for individuals and small teams up to 3 projects.' },
-  { q: 'Is [BrandName] secure?', a: 'We are SOC 2 Type II certified, support SAML SSO, SCIM, audit logs and offer regional data residency on Enterprise.' },
-  { q: 'How does pricing scale with my team?', a: 'Pricing is per active member, per month. Inactive seats are never billed, and yearly billing comes with a 20% discount.' },
-  { q: 'Can I self-host [BrandName]?', a: 'Self-hosting is available on the Enterprise plan with dedicated support and a private deployment pipeline.' },
-  { q: 'What\'s your refund policy?', a: 'If you\'re not satisfied within 30 days of purchase, we refund in full — no questions asked.' },
+  { id: 'different', q: 'How is [BrandName] different from other project tools?', a: '[BrandName] is built around a small set of opinionated primitives instead of dozens of disconnected features. The result feels quiet and intentional — less to configure, more to ship.' },
+  { id: 'migrate', q: 'Can I migrate from Linear, Jira or Asana?', a: 'Yes. We offer one-click importers for Linear, Jira, Asana, Trello and GitHub Projects. Most teams are fully migrated in under an hour.' },
+  { id: 'free-plan', q: 'Do you offer a free plan?', a: 'The Free plan is generous and forever free for individuals and small teams up to 3 projects.' },
+  { id: 'secure', q: 'Is [BrandName] secure?', a: 'We offer SOC 2 Type II certified, support SAML SSO, SCIM, audit logs and offer regional data residency on Enterprise.' },
+  { id: 'pricing', q: 'How does pricing scale with my team?', a: 'Pricing is per active member, per month. Inactive seats are never billed, and yearly billing comes with a 20% discount.' },
+  { id: 'self-host', q: 'Can I self-host [BrandName]?', a: 'Self-hosting is available on the Enterprise plan with dedicated support and a private deployment pipeline.' },
+  { id: 'refund', q: 'What\'s your refund policy?', a: 'If you\'re not satisfied within 30 days of purchase, we refund in full — no questions asked.' },
 ]
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0)
+  const [open, setOpen] = useState<string | null>('different')
 
   return (
     <section className="py-32 ">
@@ -28,12 +28,12 @@ export function FAQ() {
         </div>
 
         <div className="mt-16 border-t border-border">
-          {faqs.map((f, i) => {
-            const isOpen = open === i
+          {faqs.map((f) => {
+            const isOpen = open === f.id
             return (
-              <div key={i} className="border-b border-border">
+              <div key={f.id} className="border-b border-border">
                 <button
-                  onClick={() => setOpen(isOpen ? null : i)}
+                  onClick={() => setOpen(isOpen ? null : f.id)}
                   className="w-full flex items-center justify-between py-6 text-left group transition-colors duration-200"
                 >
                   <span className="text-base font-bold text-foreground pr-8 group-hover:text-primary transition-colors duration-200">{f.q}</span>

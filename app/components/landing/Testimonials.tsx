@@ -1,3 +1,6 @@
+'use client'
+
+import { m } from 'framer-motion';
 import { SectionHeader } from './SectionHeader'
 
 const quotes = [
@@ -39,7 +42,11 @@ export function Testimonials() {
             ][idx % 3];
 
             return (
-              <figure
+              <m.figure
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ type: 'tween', delay: idx * 0.15, duration: 1, ease: 'easeOut' }}
                 key={q.name}
                 className="rounded-2xl border border-border  p-8 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,0.04)] hover:border-primary/20 cursor-default"
               >
@@ -55,7 +62,7 @@ export function Testimonials() {
                     <div className="text-xs font-semibold text-muted-foreground">{q.role}</div>
                   </div>
                 </figcaption>
-              </figure>
+              </m.figure>
             )
           })}
         </div>

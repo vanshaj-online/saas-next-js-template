@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: '[BrandName] — Ship software, beautifully.',
     description: 'The operating system for modern product teams.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+      }
+    ]
   },
 }
 

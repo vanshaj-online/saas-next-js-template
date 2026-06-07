@@ -6,7 +6,9 @@ A premium, minimal dark-themed landing page template built with **Next.js 14 App
 
 ## Preview
 
-> Replace this line with a screenshot or demo link once deployed.
+![Elevate Landing Page](/public/elevate.png)
+
+![Elevate full UI](/public/elevate-fullUI.png)
 
 ---
 
@@ -50,6 +52,11 @@ pnpm install
 ```
 
 ### 2. Run the development server
+
+> **Note:** If the project is packaged as a zip file, unzip it before running the dev server:
+```bash
+unzip your-project.zip
+```
 
 ```bash
 npm run dev
